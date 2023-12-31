@@ -17,6 +17,7 @@
     "postcss-load-config": "^5.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
     "simpl-schema": "^3.4.1",
     "tailwindcss": "^3.4.0"
   },
@@ -28,7 +29,21 @@
     "testModule": "tests/main.js"
   },
   "devDependencies": {
+    "@quave/eslint-config-quave": "^2.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "3.1.1"
+    "prettier": "3.1.1",
+    "prettier-plugin-tailwindcss": "^0.1.13"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@quave/quave"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

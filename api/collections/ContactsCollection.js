@@ -9,16 +9,16 @@ const ContactsSchema = new SimpleSchema({
     },
     email: {
         type: String,
-        //regEx: SimpleSchema.RegEx.Email, //TODO: Check this
+        // regEx: SimpleSchema.RegEx.Email, //TODO: Check this
     },
     imageUrl: {
         type: String,
         optional: true,
     },
     walletId: {
-        type: String, 
-        //regEx: SimpleSchema.RegEx.Id,
-    }
+        type: String,
+        // regEx: SimpleSchema.RegEx.Id,
+    },
 });
 
 ContactsCollection.attachSchema(ContactsSchema);

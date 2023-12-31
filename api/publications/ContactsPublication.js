@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { ContactsCollection } from '../collections/ContactsCollection';
+import { ContactsCollection } from '../../api/collections/ContactsCollection';
 
 Meteor.publish('allContacts', function publishAllContacts() {
     return ContactsCollection.find(); //Cursor --> Live Query
