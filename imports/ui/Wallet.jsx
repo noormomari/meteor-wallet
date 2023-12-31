@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
-import { ContactsCollection } from '../api/ContactsCollection';
+import { ContactsCollection } from '../api/collections/ContactsCollection';
 
 import { Meteor } from 'meteor/meteor';
 import { Modal } from './components/Modal';
 import{ SelectContact } from './components/SelectContact';
 import { Loading } from './components/Loading';
-import { WalletsCollection } from '../api/WalletsCollection';
+import { WalletsCollection } from '../api/collections/WalletsCollection';
 
 export const Wallet = () => {
   const [open, setOpen] = useState(false);
@@ -31,7 +31,10 @@ export const Wallet = () => {
       amount: Number(amount), 
     }, (errorRes)=> {
         if(errorRes) {
-          errorRes.details?.forEach((err) => setErrMsg(err.message));
+          if(errorRes.error)
+            setErrMsg(errorRes.error);
+          else  
+            errorRes.details?.forEach((err) => setErrMsg(err.message));
         } else {
           setOpen(false);
           setDestinationWallet({});

@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
-import { ContactsCollection } from '../api/ContactsCollection';
+import { ContactsCollection } from '../api/collections/ContactsCollection';
 import { Loading } from './components/Loading';
 
 export const ContactList = () => {
