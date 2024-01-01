@@ -21,3 +21,5 @@ react-meteor-data       # React higher-order component for reactively tracking M
 juliancwirko:postcss
 aldeed:collection2
 matb33:collection-hooks
+accounts-password
+quave:logged-user-react
