@@ -22,7 +22,7 @@ const ContactsSchema = new SimpleSchema({
     userId: String,
     archived: {
         type: Boolean,
-        defaultValue: true,
+        defaultValue: false,
     },
 
 });
