@@ -15,6 +15,7 @@ const WalletsSchema = new SimpleSchema({
         defaultValue: "USD"
     },
     createdAt: Date,
+    userId: String,
 });
 
 WalletsCollection.attachSchema(WalletsSchema);

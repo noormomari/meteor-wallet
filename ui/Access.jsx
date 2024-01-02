@@ -97,7 +97,7 @@ export const Access = () => {
                     </div>
                 </div>
                 <div className="py-3">
-                    <a className="text-indigo-600" onClick={()=> setIsSignUp(!isSignUp)}>
+                    <a className="text-indigo-600 cursor-pointer" onClick={()=> setIsSignUp(!isSignUp)}>
                         {
                             isSignUp ? 
                             'If you already have an account, click here' : 
@@ -106,6 +106,11 @@ export const Access = () => {
                         
                     </a>
                 </div>
+                {!isSignUp && (<div className="pb-3">
+                    <a className="text-indigo-600 cursor-pointer" onClick={()=> navigate(RoutePaths.FORGOT_PASSWORD)}>
+                        Forgot password?
+                    </a>
+                </div>)}
             </form>
         </div>
     );

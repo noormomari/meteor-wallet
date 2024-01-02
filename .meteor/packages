@@ -23,3 +23,5 @@ aldeed:collection2
 matb33:collection-hooks
 accounts-password
 quave:logged-user-react
+quave:alert-react-tailwind
+quave:email-postmark

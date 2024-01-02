@@ -4,7 +4,7 @@ import { ADD_TYPE, TRANSFER_TYPE, TransactionsCollection } from "../../api/colle
 
 Meteor.methods({
     'transactions.insert'(args) {
-        const { isTransferring, sourceWalletId, destinationWalletId, amount } = args;
+        const { isTransferring, sourceWalletId, destinationContactId, amount } = args;
 
         const schema = new SimpleSchema({
             isTransferring: {
@@ -13,7 +13,7 @@ Meteor.methods({
             sourceWalletId: {
                 type: String,
             },
-            destinationWalletId: {
+            destinationContactId: {
                 type: String,
                 optional: !isTransferring,
             },
@@ -26,12 +26,18 @@ Meteor.methods({
         const cleanArgs = schema.clean(args);
         schema.validate(cleanArgs);
 
+        const { userId } = this;
+
+        if(!userId) 
+            throw Meteor.Error('Access denied');
+    
         return TransactionsCollection.insert({
             type: isTransferring ? TRANSFER_TYPE : ADD_TYPE,
             sourceWalletId, 
-            destinationWalletId : isTransferring ? destinationWalletId : null, 
+            destinationContactId : isTransferring ? destinationContactId : null, 
             amount, 
-            createdAt: new Date()
+            createdAt: new Date(),
+            userId,
         });
      }
 });

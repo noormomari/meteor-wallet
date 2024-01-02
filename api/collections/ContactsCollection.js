@@ -19,6 +19,12 @@ const ContactsSchema = new SimpleSchema({
         type: String,
         // regEx: SimpleSchema.RegEx.Id,
     },
+    userId: String,
+    archived: {
+        type: Boolean,
+        defaultValue: true,
+    },
+
 });
 
 ContactsCollection.attachSchema(ContactsSchema);

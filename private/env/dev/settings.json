@@ -1,0 +1,8 @@
+{
+    "packages": {
+      "quave:email-postmark": {
+        "from": "noor.omari@alawnehpay.com",
+        "apiToken": "efaa98e8-c8f8-417f-80fe-1181bb68c275"
+      }
+    }
+  }

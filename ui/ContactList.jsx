@@ -5,7 +5,7 @@ import { ContactsCollection } from '../api/collections/ContactsCollection';
 import { Loading } from './components/Loading';
 
 export const ContactList = () => {
-    const isLoading = useSubscribe('contacts');
+    const isLoading = useSubscribe('myContacts');
     const contacts = useFind(() => ContactsCollection.find({ archived: { $ne: true }}, {sort: { createdAt: -1 }}));
 
     const archiveContact = (event, _id) => {

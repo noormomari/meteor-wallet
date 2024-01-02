@@ -23,7 +23,7 @@ TransactionsCollection.before.insert(function (userId, transactionsDocument) {
             $inc: {balance: -transactionsDocument.amount}
         });
 
-        WalletsCollection.update(transactionsDocument.destinationWalletId, {
+        WalletsCollection.update(transactionsDocument.destinationContactId, {
             $inc: {balance: transactionsDocument.amount}
         });
     }
@@ -49,7 +49,7 @@ const TransactionsSchema = new SimpleSchema({
         type: String, 
         //regEx: SimpleSchema.RegEx.Id,
     },
-    destinationWalletId: {
+    destinationContactId: {
         type: String, 
         optional: true,
         //regEx: SimpleSchema.RegEx.Id,
@@ -58,6 +58,7 @@ const TransactionsSchema = new SimpleSchema({
         type: Number,
         min: 1,
     },
+    userId: String,
 });
 
 TransactionsCollection.attachSchema(TransactionsSchema);
